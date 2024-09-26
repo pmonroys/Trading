@@ -1,0 +1,5 @@
+Python version: 3.11.4
+Pandas version: 2.2.0
+Matplotlib version: 3.7.2
+Ta version: 0.11.0
+Optuna version: 3.5.0
