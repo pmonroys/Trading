@@ -10,11 +10,10 @@ The project structure includes organizing and preprocessing datasets, implementi
 
 By following best practices in project organization, documentation, and version control, this project ensures clarity, reproducibility, and collaboration among team members. It serves as a powerful tool for traders and investors looking to leverage data-driven insights and technical analysis to optimize their trading strategies across multiple assets.
 
-# Project  structure
-aqui ponemos los archivos y una descripcion super breve
-
-# Usage of the code
-Aqui ponemos el orden del uso del proyecto y como se debe ir ejecutand de que primero importar, despues optimizar, o backtestear etc
+data/: Contains training and test datasets for different assets.
+Estrategias/: Code to run the strategies.
+Untitled.ipynb: Jupyter notebook containing graphics and conclusions.
+requirements.txt: Libraries and versions required to run the module.
 
 # Authors
 
