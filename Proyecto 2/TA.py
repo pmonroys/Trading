@@ -142,8 +142,8 @@ class TechnicalAnalysis:
         # Venta cuando el Williams %R esté por encima de -20 (sobrecompra)
         return row['Williams_%R'] > -20
 
-##En esta funcion solo corremos todso los indicadores (Segun yo)
-    
+
+   
     #Correr señales de trade
     def run_signals(self):
     # Ejecutar señales de compra y venta para cada indicador
@@ -217,7 +217,7 @@ class TechnicalAnalysis:
             else:  # 'short'
                 self.cash += row['Close'] * self.n_shares * (1 - self.com)  # Incrementa el efectivo al abrir la venta en corto
 
-#print(f"Operación {operation_type} iniciada en {row.name}, Precio: {row['Close']}, Cash restante: {self.cash}")
+
 
 #Cerrar operaciones
     def check_close_operations(self, row):
@@ -230,8 +230,7 @@ class TechnicalAnalysis:
                     self.cash -= row['Close'] * op.n_shares * (1 + self.com)  # Decrementa el efectivo al cerrar la venta en corto, basado en el nuevo precio
                    
                 op.closed = True
-                #print(f"Operación {op.operation_type} cerrada en {row.name}, Precio: {row['Close']}, Cash resultante: {self.cash}")
-    
+                
     def calculate_operation_value(self, op, current_price):
         if op.operation_type == 'long':
             return (current_price - op.bought_at) * op.n_shares if not op.closed else 0
@@ -259,14 +258,6 @@ class TechnicalAnalysis:
         self.cash = 1_000_000
         self.strategy_value = [1_000_000]      
         
-#Aqui se optimiza cada parametro de los indicadores    
-    #def optimize_parameters(self, study):
-        # Aquí es donde pasarías los parámetros optimizados de cada indicador desde el objeto 'study' (ej. Optuna)
-        #self.set_rsi_parameters(study.best_params['rsi_window'])
-        #self.set_bollinger_parameters(study.best_params['bollinger_window'], study.best_params['bollinger_std_dev'])
-        #self.set_williams_r_parameters(study.best_params['williams_r_window'])
-        #self.set_macd_parameters(study.best_params['macd_fast'], study.best_params['macd_slow'], study.best_params['macd_sign'])
-        #self.set_stoch_parameters(study.best_params['stoch_k_window'], study.best_params['stoch_d_window'], study.best_params['stoch_smoothing'])
     
     def optimize_parameters(self):
         def objective(trial):
@@ -321,40 +312,6 @@ class TechnicalAnalysis:
                 self.set_stoch_parameters(study.best_params['stoch_k_window'], study.best_params['stoch_d_window'], study.best_params['stoch_smoothing'])
         self.n_shares = study.best_params['n_shares']
 
-    # Parámetros RSI
-#    def set_rsi_parameters(self, window):
-#        rsi_indicator = ta.momentum.RSIIndicator(close=self.data['Close'], window=window)
-#        self.data['RSI'] = rsi_indicator.rsi()
-
-    # Parámetros Bandas de Bollinger
-#    def set_bollinger_parameters(self, window, std_dev):
-#        bollinger = ta.volatility.BollingerBands(close=self.data['Close'], window=window, window_dev=std_dev)
-#        self.data['Bollinger_High'] = bollinger.bollinger_hband()
-#        self.data['Bollinger_Low'] = bollinger.bollinger_lband()
-#        self.data['Bollinger_Mid'] = bollinger.bollinger_mavg()
-
-    # Parámetros Williams %R
-#    def set_williams_r_parameters(self, window):
-#        williams_r = ta.momentum.WilliamsRIndicator(high=self.data['High'], low=self.data['Low'], close=self.data['Close'], lbp=window)
-#        self.data['Williams_%R'] = williams_r.williams_r()
-
-    # Parámetros MACD
-#    def set_macd_parameters(self, fast, slow, sign):
-#        macd = ta.trend.MACD(close=self.data['Close'], window_slow=slow, window_fast=fast, window_sign=sign)
-#        self.data['MACD'] = macd.macd()
-#        self.data['Signal_Line'] = macd.macd_signal()
-
-    # Parámetros Oscilador Estocástico
-#    def set_stoch_parameters(self, k_window, d_window, smoothing):
-#        stoch_indicator = ta.momentum.StochasticOscillator(high=self.data['High'], low=self.data['Low'], close=self.data['Close'], window=k_window, smooth_window=d_window)
-#        self.data['stoch_%K'] = stoch_indicator.stoch()
-#        self.data['stoch_%D'] = stoch_indicator.stoch_signal().rolling(window=smoothing).mean()
-    
-    
-    ####SE TIENEN QUE CAMBIAR LOS ARCHIVOS POR LOS QUE TENEMOS NOSOTROS
-
-
-#Despues de aqui abajo solo es para hacer graficas mostrando los resultados en el archivo ya bonito
 
     def plot_ClosingPrices(self):
         plt.figure(figsize=(12, 6))  # Tamaño del gráfico
