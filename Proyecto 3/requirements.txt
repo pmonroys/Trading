@@ -1,5 +1,7 @@
 Python version: 3.11.4
-Pandas version: 2.2.0
-Matplotlib version: 3.7.2
-Ta version: 0.11.0
-Optuna version: 3.5.0
+yfinance version: 0.2.36
+pandas version: 2.2.0
+numpy version: 1.24.4
+sklearn version: 1.0.2
+tensorflow version: 2.16.1
+matplotlib version: 3.7.2
