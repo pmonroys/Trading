@@ -1,20 +1,26 @@
-# Trading with Techincal Indicators
-## Descritption of the project
-The Trading Strategy Project is a comprehensive initiative aimed at developing, optimizing, and backtesting trading strategies using a variety of technical indicators across different timeframes. In the realm of financial markets, employing quantitative methods and algorithmic trading strategies has become increasingly essential for traders and investors seeking to gain a competitive edge and enhance their profitability.
+# Costco Trading Simulation with GAN-Generated Scenarios
 
-This project focuses on using Python as the primary programming language, leveraging key libraries such as TA-Lib for implementing technical indicators and Optuna for optimizing the parameters of these indicators. The optimization process goes beyond simply adjusting the window sizes for technical indicators; it also optimizes critical variables like the number of shares to trade, aiming to minimize key risk metrics such as max drawdown while maximizing overall performance.
+## Project Overview
+The Costco Trading Simulation project is a comprehensive initiative aimed at developing, backtesting, and analyzing trading strategies using Generative Adversarial Networks (GANs) to simulate multiple market scenarios. This project leverages quantitative methods and algorithmic trading strategies to provide valuable insights for traders and investors interested in assessing strategy performance under various stop-loss and take-profit levels.
 
-The project analyzes two primary assets: Apple (AAPL) and Bitcoin (BTC), providing insights into market trends, momentum, and volatility. Through the systematic use of technical indicators, including those optimized with Optuna, the project defines buy and sell signals, facilitating informed trading decisions.
+The project focuses on Python as the primary programming language, utilizing essential libraries to implement GANs for data generation and perform backtesting. Rather than directly optimizing hyperparameters, the project tests various levels of stop-loss and take-profit to identify robust performance patterns across simulated and historical data.
 
-The project structure includes organizing and preprocessing datasets, implementing technical indicators, defining and optimizing trading signals, and conducting rigorous backtesting to assess the performance of each strategy. By tuning parameters like indicator window sizes, position sizes, and exit rules, the project aims to minimize max drawdown and other risk measures while enhancing the robustness of the strategies across different market conditions.
+This project centers on the Costco (COST) stock, analyzing market trends and volatility through GAN-generated price scenarios. By systematically applying algorithmic trading strategies in these scenarios, the project aims to refine buy and sell signals and inform more resilient trading decisions.
 
-By following best practices in project organization, documentation, and version control, this project ensures clarity, reproducibility, and collaboration among team members. It serves as a powerful tool for traders and investors looking to leverage data-driven insights and technical analysis to optimize their trading strategies across multiple assets.
+## Project Structure
+The project is organized to facilitate clarity, reproducibility, and collaborative development. Key components include:
 
+- `data/`: Contains 10 years of historical Costco data, used to train the GAN and perform backtesting.
+- `models/`: Stores the trained GAN models used to generate multiple hypothetical market scenarios.
+- `strategies/`: Code implementing the algorithmic trading strategy and the benchmark passive strategy.
+- `notebooks/`: Jupyter notebook for visualizing results, including charts, conclusions, and performance metrics.
+- `requirements.txt`: Specifies required libraries and their versions.
 
-* data: Contains training and test datasets for different assets.
-* Estrategias: Code to run the strategies.
-* Untitled.ipynb: Jupyter notebook containing graphics and conclusions.
-* requirements.txt: Libraries and versions required to run the module.
+## Installation and Setup
+To set up the project environment, first ensure Python is installed, then install dependencies:
+
+```bash
+pip install -r requirements.txt
 
 
 # Authors
